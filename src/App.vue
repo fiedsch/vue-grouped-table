@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <rows-group v-for="row in rows" :data="row" v-bind:key="row.group_id"/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import RowsGroup from "./components/RowsGroup";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            RowsGroup,
+        },
+        data() {
+            return {
+                rows: [
+                    {'name': 'Tom', ids: [1, 2], group_id: 1 },
+                    {'name': 'Sue', ids: [3], group_id: 2 },
+                    {'name': 'Mae', ids: [4, 5], group_id: 3 }
+                ]
+            }
+        },
+    }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
