@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <div class="tr" v-for="(row, i)  in rows" v-bind:key="row.id">
+    <div role="rowgroup">
+        <div class="tr" role="row" v-for="(row, i)  in rows" v-bind:key="row.id">
             <template v-if="i == 0 && data.ids.length>1">
-                <span class="td" v-if="isCollapsed" @click="toggleCollapsed">+</span>
-                <span class="td" v-else @click="toggleCollapsed">−</span>
+                <span class="td" role="cell" v-if="isCollapsed" @click="toggleCollapsed">+</span>
+                <span class="td" role="cell" v-else @click="toggleCollapsed">−</span>
             </template>
             <template v-else>
-                <span v-if="!isCollapsed" class="td" >&nbsp;</span>
+                <span v-if="!isCollapsed" role="cell" class="td" >&nbsp;</span>
             </template>
             <template v-if="i == 0 || (i > 0 && !isCollapsed)">
-                <span class="td" >{{ row.name }}</span>
-                <span class="td">{{ row.id }}</span>
+                <span class="td" role="cell">{{ row.name }}</span>
+                <span class="td" role="cell">{{ row.id }}</span>
             </template>
         </div>
     </div>
